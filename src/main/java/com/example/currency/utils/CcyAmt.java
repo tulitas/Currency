@@ -2,6 +2,8 @@ package com.example.currency.utils;
 
 import jakarta.xml.bind.annotation.XmlElement;
 
+import java.util.Date;
+
 public class CcyAmt {
 
     private String ccy;

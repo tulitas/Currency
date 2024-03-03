@@ -46,33 +46,9 @@ public class SchedulerConfig {
     public Trigger currencyScheduledTrigger(JobDetail currencyJobDetail) throws ParseException {
         CronTriggerFactoryBean triggerFactoryBean = new CronTriggerFactoryBean();
         triggerFactoryBean.setJobDetail(currencyJobDetail);
-        triggerFactoryBean.setCronExpression("0/50 * * * * ?"); // Каждые 50 секунд
+        triggerFactoryBean.setCronExpression("0 */2 * * * ?"); // Каждые 50 секунд
         triggerFactoryBean.setName("currencyScheduledTrigger");
         triggerFactoryBean.afterPropertiesSet();
         return triggerFactoryBean.getObject();
     }
-//    @Bean
-//    public Scheduler scheduler() throws SchedulerException {
-//        Scheduler scheduler = new StdSchedulerFactory().getScheduler();
-//        scheduler.start();
-//        return scheduler;
-//    }
-//
-//    @Bean
-//    public JobDetail currencyJobDetail() {
-//        return JobBuilder.newJob(CurrencyJob.class)
-//                .withIdentity("currencyJob")
-//                .storeDurably()
-//                .build();
-//    }
-//
-//    @Bean
-//    public Trigger currencyTrigger(JobDetail currencyJobDetail) {
-//        return TriggerBuilder.newTrigger()
-//                .forJob(currencyJobDetail)
-//                .withIdentity("currencyTrigger")
-////                .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(10, 0))
-//                .withSchedule(CronScheduleBuilder.cronSchedule("*/50 * * * * ?"))
-//                .build();
-//    }
 }
