@@ -46,7 +46,7 @@ public class SchedulerConfig {
     public Trigger currencyScheduledTrigger(JobDetail currencyJobDetail) throws ParseException {
         CronTriggerFactoryBean triggerFactoryBean = new CronTriggerFactoryBean();
         triggerFactoryBean.setJobDetail(currencyJobDetail);
-        triggerFactoryBean.setCronExpression("0 */2 * * * ?"); // Каждые 50 секунд
+        triggerFactoryBean.setCronExpression("0 0 0 * * ?");
         triggerFactoryBean.setName("currencyScheduledTrigger");
         triggerFactoryBean.afterPropertiesSet();
         return triggerFactoryBean.getObject();

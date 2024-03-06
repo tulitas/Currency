@@ -1,0 +1,21 @@
+<div>
+  <h2>History of {{ data.history[0]?.currency }}</h2>
+  <table mat-table [dataSource]="data.history">
+    <ng-container matColumnDef="currency">
+      <th mat-header-cell *matHeaderCellDef>Currency</th>
+      <td mat-cell *matCellDef="let currency">{{ currency.currency }}</td>
+    </ng-container>
+    <ng-container matColumnDef="rate">
+      <th mat-header-cell *matHeaderCellDef>Rate</th>
+      <td mat-cell *matCellDef="let currency">{{ currency.rate }}</td>
+    </ng-container>
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let currency">{{ currency.date }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="['currency', 'rate', 'date']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['currency', 'rate', 'date']"></tr>
+  </table>
+  <button mat-button (click)="closeModal()">Close</button>
+</div>

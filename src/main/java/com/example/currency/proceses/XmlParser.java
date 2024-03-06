@@ -1,10 +1,6 @@
 package com.example.currency.proceses;
 
 import com.example.currency.utils.CcyAmt;
-import com.example.currency.utils.FxRates;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Unmarshaller;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
@@ -52,20 +48,6 @@ public class XmlParser {
                 }
             }
             return ccyAmtList;
-//            JAXBContext jaxbContext = JAXBContext.newInstance(FxRates.class);
-//            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-//
-//            XMLInputFactory factory = XMLInputFactory.newFactory();
-//            factory.setProperty(XMLInputFactory.IS_NAMESPACE_AWARE, false);
-//
-//            XMLStreamReader xmlStreamReader = factory.createXMLStreamReader(new StringReader(xmlResponse));
-//
-//            while (xmlStreamReader.hasNext() && !xmlStreamReader.isStartElement()) {
-//                xmlStreamReader.next();
-//            }
-//
-//            Object object = unmarshaller.unmarshal(xmlStreamReader);
-//            return (FxRates) object;
         } catch ( XMLStreamException e) {
             e.printStackTrace();
             return null;

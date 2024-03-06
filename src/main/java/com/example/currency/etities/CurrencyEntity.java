@@ -2,8 +2,6 @@ package com.example.currency.etities;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "currency")
 public class CurrencyEntity {
